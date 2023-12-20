@@ -15,9 +15,10 @@ class App extends Component {
   removeOne = (id) => {
     let items = this.state.items
     let i = items.findIndex(item => item.id === id)
-    if(items[i].quantity===1) 
+    if(items[i].quantity <= 1) 
     {
       items.splice(i, 1);
+      this.setState({items: items})
       return;
     }
     items[i].quantity--
